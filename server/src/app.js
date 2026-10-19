@@ -2,9 +2,7 @@ import express from "express";
 import cors from "cors";
 import contactRoutes from "./routes/contactRoutes.js";
 import resumeRoutes from "./routes/resumeRoutes.js";
-import dns from "dns";
 
-dns.setServers(["8.8.8.8", "1.1.1.1"]);
 const app = express();
 
 const allowedOrigins = (

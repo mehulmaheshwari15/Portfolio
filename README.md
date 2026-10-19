@@ -1,5 +1,11 @@
 # Mehul Maheshwari — Portfolio
 
+Live Deployment
+
+Live Website: https://portfolio-pied-psi-44.vercel.app/
+
+Frontend: Vercel
+Backend: https://portfolio-6v6w.onrender.com
 A responsive personal portfolio built with React, Vite, Express, and MongoDB, featuring an elegant Espresso & Champagne theme. The website showcases my background, skills, projects, certifications, and contact information.
 
 ## Features
