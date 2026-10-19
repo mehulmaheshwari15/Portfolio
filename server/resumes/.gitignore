@@ -1,0 +1,5 @@
+# Ignore all resume files — add your own copies locally.
+# Only this .gitignore file and README.txt are tracked.
+*.pdf
+*.docx
+*.doc

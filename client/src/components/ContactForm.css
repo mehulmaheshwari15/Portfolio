@@ -1,0 +1,317 @@
+.contact-section {
+  --espresso: #2C2424;
+  --champagne: #C49A3A;
+  --ivory: #F7F4EF;
+  --muted: #B9AEA5;
+
+  position: relative;
+  padding: 100px 24px 120px;
+  background: var(--espresso);
+  color: var(--ivory);
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme support */
+:root[data-theme="light"] .contact-section,
+.light .contact-section {
+  --espresso: #F7F4EF;
+  --champagne: #8A651B;
+  --ivory: #2C2424;
+  --muted: #655A53;
+  background: var(--espresso);
+  color: var(--ivory);
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  animation: contact-enter 700ms ease-out both;
+}
+
+.contact-heading {
+  margin-bottom: 34px;
+}
+
+.contact-eyebrow {
+  display: block;
+  color: var(--champagne);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.contact-heading h2 {
+  margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 6vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  font-weight: 500;
+}
+
+.gold-dot {
+  color: var(--champagne);
+}
+
+.contact-heading p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid rgba(196, 154, 58, 0.2);
+  border-radius: 14px;
+  background: rgba(247, 244, 239, 0.035);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="light"] .contact-form,
+[data-theme="light"] .contact-form,
+.light .contact-form {
+  border-color: rgba(138, 101, 27, 0.35);
+  background: #E5DCD0;
+  box-shadow: 
+    0 14px 38px rgba(44, 36, 36, 0.09),
+    0 3px 8px rgba(44, 36, 36, 0.05);
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.contact-field label {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 200ms ease;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid rgba(247, 244, 239, 0.13);
+  border-radius: 7px;
+  outline: none;
+  background: rgba(247, 244, 239, 0.025);
+  color: var(--ivory);
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    background 250ms ease;
+}
+
+:root[data-theme="light"] .contact-field input,
+:root[data-theme="light"] .contact-field textarea,
+.light .contact-field input,
+.light .contact-field textarea {
+  border-color: rgba(44, 36, 36, 0.15);
+  background: #FFFFFF;
+  color: #2C2424;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #92857D;
+}
+
+:root[data-theme="light"] .contact-field input::placeholder,
+:root[data-theme="light"] .contact-field textarea::placeholder,
+.light .contact-field input::placeholder,
+.light .contact-field textarea::placeholder {
+  color: #8C827A;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: var(--champagne);
+  background: rgba(196, 154, 58, 0.04);
+  box-shadow: 0 0 0 3px rgba(196, 154, 58, 0.15);
+}
+
+:root[data-theme="light"] .contact-field input:focus,
+:root[data-theme="light"] .contact-field textarea:focus,
+.light .contact-field input:focus,
+.light .contact-field textarea:focus {
+  border-color: var(--champagne);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(138, 101, 27, 0.15);
+}
+
+.contact-field:focus-within label {
+  color: var(--champagne);
+}
+
+.contact-field textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: fit-content;
+  min-width: 170px;
+  padding: 13px 24px;
+  border: 1px solid var(--champagne);
+  border-radius: 7px;
+  background: var(--champagne);
+  color: #241C13;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.contact-submit:hover {
+  transform: translateY(-3px);
+  background: #D3AD57;
+  box-shadow: 0 8px 22px rgba(196, 154, 58, 0.22);
+}
+
+:root[data-theme="light"] .contact-submit,
+.light .contact-submit {
+  background: var(--champagne);
+  color: #FFFFFF;
+  border-color: var(--champagne);
+}
+
+:root[data-theme="light"] .contact-submit:hover,
+.light .contact-submit:hover {
+  background: #9A711D;
+  box-shadow: 0 8px 22px rgba(138, 101, 27, 0.25);
+}
+
+.contact-submit:active {
+  transform: translateY(0);
+}
+
+.contact-arrow {
+  display: inline-block;
+  font-size: 18px;
+  transition: transform 220ms ease;
+}
+
+.contact-submit:hover .contact-arrow {
+  transform: translate(3px, -3px);
+}
+
+.contact-feedback {
+  margin: -8px 0 0;
+  color: var(--champagne);
+  font-size: 13px;
+  line-height: 1.6;
+  animation: contact-enter 300ms ease-out;
+}
+
+.contact-feedback.error {
+  color: #FFAAA5;
+  animation: contact-shake 300ms ease;
+}
+
+:root[data-theme="light"] .contact-feedback.error,
+.light .contact-feedback.error {
+  color: #B52B20;
+}
+
+.contact-feedback.success {
+  color: #78C091;
+  font-weight: 500;
+}
+
+:root[data-theme="light"] .contact-feedback.success,
+.light .contact-feedback.success {
+  color: #2E7D32;
+}
+
+.contact-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes contact-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-4px);
+  }
+
+  70% {
+    transform: translateX(4px);
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 70px 18px 90px;
+  }
+
+  .contact-form {
+    padding: 21px 17px;
+    gap: 21px;
+  }
+
+  .contact-heading {
+    margin-bottom: 26px;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-container,
+  .contact-feedback {
+    animation: none;
+  }
+
+  .contact-field input,
+  .contact-field textarea,
+  .contact-field label,
+  .contact-submit,
+  .contact-arrow {
+    transition: none;
+  }
+
+  .contact-submit:hover {
+    transform: none;
+  }
+
+  .contact-submit:hover .contact-arrow {
+    transform: none;
+  }
+}

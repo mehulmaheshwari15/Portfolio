@@ -1,0 +1,259 @@
+/* ────────────────────────────────────────────────────────────────────────────
+   ResumeDropdown  –  theme-aware via CSS custom properties
+   Inherits --gold / --gold-strong / --text / --bg / --surface / --border
+   from theme.css (already applied to :root and :root[data-theme="light"]).
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* ── Wrapper ─────────────────────────────────────────────────────────────── */
+.rdrop-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Make hero variant fill its flex row slot like sibling buttons */
+.rdrop-wrap--hero {
+  align-self: auto;
+}
+
+/* ── Trigger ─────────────────────────────────────────────────────────────── */
+.rdrop-trigger {
+  white-space: nowrap;
+}
+
+.rdrop-trigger:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
+.rdrop-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* Hero variant — inherits .home-button .home-button-primary sizing */
+.rdrop-trigger--hero .rdrop-icon {
+  width: 19px;
+  height: 19px;
+}
+
+/* ── Chevron ─────────────────────────────────────────────────────────────── */
+.rdrop-chevron {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 220ms ease;
+}
+
+.rdrop-chevron--up {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown menu ───────────────────────────────────────────────────────── */
+.rdrop-menu {
+  position: absolute;
+  top: calc(100% + 9px);
+  left: 0;
+  z-index: 120;
+  min-width: 220px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.22),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+
+  animation: rdrop-open 160ms ease forwards;
+  transform-origin: top left;
+}
+
+/* Navbar variant: align to the right edge of the button */
+.rdrop-wrap--navbar .rdrop-menu {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+
+@keyframes rdrop-open {
+  from {
+    opacity: 0;
+    transform: scaleY(0.88) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+/* ── Menu items ──────────────────────────────────────────────────────────── */
+.rdrop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.rdrop-item:hover,
+.rdrop-item:focus-visible {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  color: var(--gold);
+  outline: none;
+}
+
+/* icon column */
+.rdrop-item-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.rdrop-item-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* text column */
+.rdrop-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.rdrop-item-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.rdrop-item-ext {
+  font-size: 0.72rem;
+  color: var(--muted, #c7bcb4);
+  letter-spacing: 0.04em;
+}
+
+/* trailing download arrow */
+.rdrop-item-arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(2px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.rdrop-item:hover .rdrop-item-arrow,
+.rdrop-item:focus-visible .rdrop-item-arrow {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* ── Error toast ─────────────────────────────────────────────────────────── */
+.rdrop-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 240px;
+  max-width: 320px;
+  margin-top: 8px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(196, 80, 60, 0.35);
+  background: color-mix(in srgb, #c4503c 10%, var(--surface));
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  animation: rdrop-open 220ms ease forwards;
+}
+
+.rdrop-error svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #c4503c;
+}
+
+.rdrop-error span {
+  flex: 1;
+}
+
+.rdrop-error-close {
+  flex-shrink: 0;
+  padding: 0 2px;
+  border: none;
+  background: transparent;
+  color: var(--muted, #c7bcb4);
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 150ms ease;
+}
+
+.rdrop-error-close:hover {
+  opacity: 1;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+/* On very small screens the hero dropdown opens downward and stretches full-width */
+@media (max-width: 400px) {
+  .rdrop-wrap--hero {
+    align-self: stretch;
+  }
+
+  .rdrop-wrap--hero .rdrop-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rdrop-menu {
+    min-width: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rdrop-menu,
+  .rdrop-error {
+    animation: none;
+  }
+
+  .rdrop-chevron {
+    transition: none;
+  }
+
+  .rdrop-item {
+    transition: none;
+  }
+
+  .rdrop-item-arrow {
+    transition: none;
+  }
+}

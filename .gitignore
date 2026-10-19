@@ -1,0 +1,59 @@
+# ─── Dependencies ───────────────────────────────────────────────────────────
+node_modules/
+
+# ─── Build outputs ──────────────────────────────────────────────────────────
+dist/
+build/
+.output/
+.vite/
+
+# ─── Environment files ──────────────────────────────────────────────────────
+# Never commit real secrets or local configuration.
+# Commit only the .env.example template files.
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# ─── Resume files ───────────────────────────────────────────────────────────
+# These may contain personal data and should not be committed.
+# Add your own files to server/resumes/ locally.
+server/resumes/*.pdf
+server/resumes/*.docx
+server/resumes/*.doc
+
+# ─── Logs ───────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+
+# ─── OS & editor artefacts ──────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ─── Test & coverage ────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ─── Misc generated ─────────────────────────────────────────────────────────
+*.tsbuildinfo
+.eslintcache
+.stylelintcache

@@ -1,0 +1,332 @@
+.home-section {
+  --home-bg: #F7F4EF;
+  --home-text: #2C2424;
+  --home-muted: #655A53;
+  --home-gold: #8A651B;
+  --home-gold-hover: #9A711D;
+  --home-border: rgba(44, 36, 36, 0.17);
+  --home-card-bg: rgba(196, 154, 58, 0.08);
+  --home-placeholder-bg: #EFE8DE;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 82px);
+  padding: clamp(60px, 10vh, 110px) 24px clamp(80px, 12vh, 120px);
+  overflow: hidden;
+  background: var(--home-bg);
+  color: var(--home-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme overrides (Espresso, Champagne Gold, Warm Ivory, Charcoal) */
+:root[data-theme="dark"] .home-section,
+:root:not([data-theme="light"]) .home-section,
+.dark .home-section {
+  --home-bg: #2C2424;
+  --home-text: #F7F4EF;
+  --home-muted: #C7BCB4;
+  --home-gold: #C49A3A;
+  --home-gold-hover: #D4A843;
+  --home-border: rgba(247, 244, 239, 0.18);
+  --home-card-bg: rgba(196, 154, 58, 0.1);
+  --home-placeholder-bg: #292526;
+}
+
+.home-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.home-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.home-eyebrow {
+  margin: 0 0 16px;
+  color: var(--home-gold);
+  font-size: clamp(0.76rem, 1.1vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.home-name {
+  margin: 0 0 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6.5vw, 5.4rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.home-name span {
+  color: var(--home-gold);
+}
+
+.home-role {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  margin: 0 0 24px;
+  color: var(--home-muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.6;
+}
+
+.home-role > span:last-child {
+  color: var(--home-text);
+  font-weight: 500;
+}
+
+.home-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--home-gold);
+  animation: home-cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes home-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.home-headline {
+  max-width: 680px;
+  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.home-headline span {
+  color: var(--home-muted);
+}
+
+.home-description {
+  max-width: 580px;
+  margin: 0 0 32px;
+  color: var(--home-muted);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.85;
+}
+
+.home-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 13px 24px;
+  border: 1px solid var(--home-gold);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.home-button:hover {
+  transform: translateY(-2px);
+}
+
+.home-button svg {
+  width: 19px;
+  height: 19px;
+}
+
+.home-button-primary {
+  background: var(--home-gold);
+  color: #241C13;
+  border-color: var(--home-gold);
+}
+
+.home-button-primary:hover {
+  background: var(--home-gold-hover);
+  border-color: var(--home-gold-hover);
+}
+
+.home-button-secondary {
+  background: transparent;
+  color: var(--home-text);
+  border-color: var(--home-gold);
+}
+
+.home-button-secondary:hover {
+  background: var(--home-card-bg);
+}
+
+.home-button-secondary span {
+  font-size: 1.1rem;
+}
+
+.home-bottom-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--home-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.home-note-line {
+  width: 36px;
+  height: 1px;
+  background: var(--home-gold);
+  opacity: 0.8;
+}
+
+.home-scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--home-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-scroll-indicator:hover {
+  color: var(--home-gold);
+}
+
+.home-scroll-line {
+  width: 36px;
+  height: 1px;
+  background: var(--home-gold);
+  opacity: 0.8;
+}
+
+/* Tablet Layout */
+@media (max-width: 900px) {
+  .home-section {
+    padding: 70px 20px 95px;
+  }
+
+  .home-name {
+    font-size: clamp(2.8rem, 6.5vw, 4.2rem);
+  }
+
+  .home-headline {
+    font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  }
+
+  .home-actions {
+    gap: 12px;
+  }
+
+  .home-button {
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 650px) {
+  .home-section {
+    min-height: auto;
+    padding: 55px 18px 85px;
+  }
+
+  .home-name {
+    font-size: clamp(2.4rem, 10vw, 3.4rem);
+  }
+
+  .home-role {
+    min-height: 44px;
+    font-size: 0.98rem;
+  }
+
+  .home-headline {
+    margin-bottom: 16px;
+    font-size: clamp(1.4rem, 6.2vw, 1.85rem);
+  }
+
+  .home-description {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .home-actions {
+    width: 100%;
+    max-width: 340px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .home-button {
+    width: 100%;
+  }
+
+  .home-bottom-note {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+  }
+
+  .home-note-line {
+    width: 24px;
+  }
+
+  .home-scroll-indicator {
+    bottom: 16px;
+  }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .home-cursor {
+    animation: none;
+    display: none;
+  }
+
+  .home-button {
+    transition: none;
+  }
+
+  .home-button:hover {
+    transform: none;
+  }
+}
